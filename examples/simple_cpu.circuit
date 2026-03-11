@@ -1,0 +1,19 @@
+// Simple CPU with ALU and Control Logic
+// Demonstrates: Multi-step computation with state management
+
+// Program: Calculate (A + B) AND C
+
+// Fetch inputs
+input: A, B, C, CLK
+
+// Stage 1: ALU operations
+add_op: ADD(A, B) -> (Q)
+and_op: AND(add_op.Q, C) -> (result)
+
+// Output
+output: add_op.Q
+output: and_op.result
+
+// Test: A=15, B=7, C=12
+// Expected: (15 + 7) & 12 = 22 & 12 = 4
+test: A=15, B=7, C=12, CLK=1

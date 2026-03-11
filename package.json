@@ -1,0 +1,39 @@
+{
+  "name": "circuitlang",
+  "version": "1.0.0",
+  "description": "A text-based programming language for connecting and simulating digital circuits",
+  "main": "main.js",
+  "bin": {
+    "circuitlang": "main.js"
+  },
+  "scripts": {
+    "test": "node test.js",
+    "start": "node server.js",
+    "dev": "node server.js",
+    "example:and": "node main.js examples/and_gate.circuit",
+    "example:or": "node main.js examples/or_gate.circuit",
+    "example:xor": "node main.js examples/xor_gate.circuit",
+    "example:half-adder": "node main.js examples/half_adder.circuit",
+    "example:multiplexer": "node main.js examples/multiplexer.circuit",
+    "example:4bit": "node main.js examples/4bit_calculator.circuit",
+    "example:cpu": "node main.js examples/simple_cpu.circuit",
+    "examples": "npm run example:and && npm run example:xor && npm run example:half-adder"
+  },
+  "keywords": [
+    "circuits",
+    "logic",
+    "gates",
+    "digital",
+    "programming-language"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}

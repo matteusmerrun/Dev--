@@ -1,0 +1,43 @@
+// 4-Bit Simple Calculator
+// Demonstrates: Addition and subtraction with carry/borrow
+
+// Input: two 4-bit numbers
+input: A0, A1, A2, A3, B0, B1, B2, B3, OP
+
+// OP = 0: ADD, OP = 1: SUB
+
+// Bit 0 addition
+xor0: XOR(A0, B0) -> (sum0)
+and0: AND(A0, B0) -> (c0)
+
+// Bit 1 addition with carry
+xor0b: XOR(sum0, OP) -> (bit0)      // Toggle B0 if subtracting
+xor1a: XOR(A1, B1) -> (s1a)
+xor1b: XOR(s1a, c0) -> (sum1)
+and1a: AND(A1, B1) -> (c1a)
+and1b: AND(s1a, c0) -> (c1b)
+or1: OR(c1a, c1b) -> (c1)
+
+// Bit 2 addition with carry
+xor2a: XOR(A2, B2) -> (s2a)
+xor2b: XOR(s2a, c1) -> (sum2)
+and2a: AND(A2, B2) -> (c2a)
+and2b: AND(s2a, c1) -> (c2b)
+or2: OR(c2a, c2b) -> (c2)
+
+// Bit 3 addition with carry
+xor3a: XOR(A3, B3) -> (s3a)
+xor3b: XOR(s3a, c2) -> (sum3)
+and3a: AND(A3, B3) -> (c3a)
+and3b: AND(s3a, c2) -> (c3b)
+or3: OR(c3a, c3b) -> (c3)
+
+// Outputs
+output: bit0
+output: sum1
+output: sum2
+output: sum3
+output: c3
+
+// Test: 1101 (13) + 0011 (3) = 10000 (16, overflow)
+test: A0=1, A1=0, A2=1, A3=1, B0=1, B1=1, B2=0, B3=0, OP=0

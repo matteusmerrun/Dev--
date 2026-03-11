@@ -1,0 +1,11 @@
+// Complex circuit with multiple gates
+// Implements: Q = (A AND B) OR (C AND NOT D)
+
+and1: AND(A, B) -> (Q)
+and2: AND(C, D) -> (Q)
+not_gate: NOT(D) -> (Q)
+or_gate: OR(and1.Q, and2.Q) -> (Q)
+
+output: or_gate.Q
+
+test: A=1, B=1, C=0, D=0

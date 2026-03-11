@@ -1,0 +1,11 @@
+// Multiplexer: Select between A or B based on SEL
+// Output = (A AND NOT SEL) OR (B AND SEL)
+
+not_sel: NOT(SEL) -> (Q)
+and_a: AND(A, not_sel.Q) -> (Q)
+and_b: AND(B, SEL) -> (Q)
+or_gate: OR(and_a.Q, and_b.Q) -> (Q)
+
+output: or_gate.Q
+
+test: A=1, B=0, SEL=1

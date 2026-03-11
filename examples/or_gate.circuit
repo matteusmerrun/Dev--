@@ -1,0 +1,6 @@
+// Simple OR gate example
+
+or_gate: OR(A, B) -> (Q)
+output: or_gate.Q
+
+test: A=0, B=1

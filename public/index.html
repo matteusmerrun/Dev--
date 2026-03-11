@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CircuitLang - Live Circuit Designer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>⚡ CircuitLang</h1>
+                <p>Live Circuit Designer & Simulator</p>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="main">
+            <!-- Left Panel - Editor -->
+            <div class="panel editor-panel">
+                <div class="panel-header">
+                    <h2>Circuit Code</h2>
+                    <div class="controls">
+                        <select id="exampleSelect" class="example-select">
+                            <option value="">Select an example...</option>
+                        </select>
+                        <button id="runBtn" class="btn btn-primary">▶ Run</button>
+                        <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+                <textarea id="editor" class="editor" placeholder="// Define your circuit here
+gate_name: AND(A, B) -> (Q)
+output: gate_name.Q
+test: A=1, B=1"></textarea>
+            </div>
+
+            <!-- Right Panel - Results -->
+            <div class="panel results-panel">
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="output">Output</button>
+                    <button class="tab-btn" data-tab="tokens">Tokens</button>
+                    <button class="tab-btn" data-tab="ast">AST</button>
+                    <button class="tab-btn" data-tab="canvas">Circuit</button>
+                </div>
+
+                <!-- Tab Contents -->
+                <div class="tab-content">
+                    <!-- Output Tab -->
+                    <div id="output" class="tab-pane active">
+                        <div class="output-section">
+                            <h3>Simulation Results</h3>
+                            <div id="resultsOutput" class="results-output">
+                                <p class="placeholder">Run your circuit to see results...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tokens Tab -->
+                    <div id="tokens" class="tab-pane">
+                        <div class="output-section">
+                            <h3>Tokens</h3>
+                            <div id="tokensOutput" class="code-output">
+                                <p class="placeholder">Tokens will appear here...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AST Tab -->
+                    <div id="ast" class="tab-pane">
+                        <div class="output-section">
+                            <h3>Abstract Syntax Tree</h3>
+                            <div id="astOutput" class="code-output">
+                                <p class="placeholder">AST will appear here...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Canvas Tab -->
+                    <div id="canvas" class="tab-pane">
+                        <div class="output-section">
+                            <h3>Circuit Visualization</h3>
+                            <canvas id="circuitCanvas" class="circuit-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <footer class="status-bar">
+            <span id="status">Ready</span>
+            <span id="stats" class="stats"></span>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

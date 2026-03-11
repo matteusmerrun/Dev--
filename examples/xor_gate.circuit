@@ -1,0 +1,6 @@
+// XOR gate example
+
+xor_gate: XOR(A, B) -> (Q)
+output: xor_gate.Q
+
+test: A=1, B=0
